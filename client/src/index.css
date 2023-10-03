@@ -1,0 +1,88 @@
+body {
+  background: (248, 249, 250);
+}
+
+pre {
+  font-family: var(--bs-font-sans-serif);
+  overflow:hidden;
+  white-space: pre-line;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden !important;
+  -webkit-line-clamp: 10;
+}
+
+.label {
+  font-size: 1.30rem;
+  font-weight: bold;
+}
+
+.bottom-border {
+  border-bottom: 1px rgba(0,0,0,0.2) solid
+}
+
+.text-color {
+  color: rgb(22, 21, 21);; 
+ }
+
+#dark {
+  background-color: rgb(22, 21, 21);
+}
+
+#dark .text-color {
+  color: #ebecec;
+}
+
+#dark .card {
+  background-color: rgb(var(--bs-dark-rgb))
+}
+
+#dark .modal-content {
+  background-color: rgb(22, 21, 21);
+}
+
+#dark .modal-header{
+  border-bottom: var(--bs-modal-header-border-width) solid rgb(51, 57, 63);
+}
+
+#dark .modal-footer{
+  border-top: var(--bs-modal-footer-border-width) solid rgb(51, 57, 63);
+}
+
+#dark .bottom-border {
+  border-bottom: 1px rgba(255,255,255,0.2) solid
+}
+
+#dark .form-control {
+  background-color: rgb(22, 21, 21);
+  color: #ebecec;
+  border-color: rgb(33, 37, 41);
+}
+
+#dark .form-control::placeholder {
+  color: #ebececc0;
+}
+
+#dark .input-group-text {
+  background-color: rgb(33, 37, 41);
+  border-color: rgb(33, 37, 41);
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--bs-secondary-rgb), 0.5);
+  border-radius: 5px;
+}
+
+textarea::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+textarea::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--bs-secondary-rgb), 0.5);
+  border-radius: 5px;
+}
