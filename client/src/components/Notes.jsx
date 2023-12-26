@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client'
 import NoteCard from "./NoteCard";
 import { GET_NOTES } from '../queries/notesQueries';
 import Spinner from './Spinner';
-import ShowNoteModal from './showNoteModal';
+import ShowNoteModal from './ShowNoteModal';
 import { useContext, useState } from 'react';
 import NotesAppLogo from '../assets/notesapp.png'
 import { FaExclamationTriangle, FaPen } from 'react-icons/fa'
@@ -47,10 +47,8 @@ export default function Notes() {
               (
                 <div className="d-flex flex-column gap-2 align-items-center justify-content-center">
                   <FaExclamationTriangle size={100} className='text-warning'/>
-                  <p>
-                    Something went wrong 
+                  <p>Something went wrong</p>
                     <button type="button" className={`btn btn-sm ms-2 btn-${theme == 'dark'?'dark':'light'}`} onClick={() => location.reload()}>Reload</button>
-                  </p>
                 </div>
               ) 
               : 
