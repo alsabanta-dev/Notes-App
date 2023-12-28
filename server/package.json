@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
     "make-note-model": "npx sequelize-cli model:generate --name noteModel --attributes title:string,content:text,pinned:boolean",
-    "migrate": "npx sequelize-cli db:migrate"
+    "migrate": "npx sequelize-cli db:migrate",
+    "start:prod": "node server.js"
   },
   "author": "Simba Adeeb",
   "license": "ISC",

@@ -1,0 +1,60 @@
+version: '3.1'
+
+services:
+  postgres-db:
+    container_name: notes-app-db-con
+    image: postgres:16.1
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: notesappdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata 
+    ports:
+      - 5432:5432
+    volumes:
+      - $HOME/database:/var/lib/postgresql/data/
+    expose:
+      - 5432
+    networks:
+      - internalnet
+
+  notes-app-server:
+    container_name: notes-app-server-con
+    build: ./server
+    image: notes-app-server-image:v1
+    environment:
+      NODE_ENV: development
+      PORT: 4000
+      DB_HOST: postgres-db
+      DB_PORT: 5432
+      DB_NAME: notesappdb
+      DB_USERNAME: postgres
+      DB_PASSWORD: 'postgres'
+      POSTGRES_DB: notesappdb
+    ports:
+      - 4000:4000
+    expose:
+      - 4000
+    depends_on:
+      - postgres-db
+    networks:
+      - internalnet
+  
+  notes-app-client:
+    container_name: notes-app-client-con
+    build: ./client
+    image: notes-app-client-image:v1
+    ports:
+      - 5173:5173
+    expose:
+      - 5173
+    depends_on:
+      - notes-app-server
+    networks:
+      - internalnet
+  
+
+networks:
+  internalnet:
+    driver: bridge
